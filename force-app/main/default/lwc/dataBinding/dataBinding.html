@@ -1,0 +1,29 @@
+<template>
+    <lightning-card class="slds-card" title="One Way Binding" >
+       
+        My Name is {name} and I am a {designation} role 
+      
+        <br>
+        Current Time is {currentTime}
+        <br>
+      My Full day rate is {fullDayRate}
+    </lightning-card>
+        <lightning-card class="slds-card" title="Two Way Binding" >
+           
+     <lightning-input
+     class=" slds-p-around_small"
+    label="Text Input"
+    value={text}
+    onchange={updateMemberStatus}
+    ></lightning-input> 
+     Your details is: {memberDetails}
+     <p> {handleTotalRate} </p>
+    </lightning-card>
+
+         <lightning-card class="slds-card" title="Getter Method" >
+           <lightning-input type="number" onchange={handleWatchChange}> </lightning-input>
+      <p> This is Total hadle rate {handleTotalRate} </p>
+    </lightning-card>
+ 
+     
+</template>
