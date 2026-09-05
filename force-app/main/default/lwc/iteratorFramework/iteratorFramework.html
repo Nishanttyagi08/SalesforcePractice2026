@@ -1,3 +1,65 @@
 <template>
-    
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid slds-assistive-text">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="#" class="slds-card__header-link slds-truncate" title="My Task list View Key">
+                            <span>My Task list Via Key</span>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+            <template for:each={taskList} for:item="eachTask">
+                <div key={eachTask.Id}>
+                    {eachTask.taskName} - {eachTask.taskProgress} and priority is {eachTask.taskPriority}
+
+                </div>
+
+            </template>
+        </div>
+        <footer class="slds-card__footer">
+            All the best! You can do it...
+        </footer>
+    </article>
+
+
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid slds-assistive-text">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="#" class="slds-card__header-link slds-truncate" title="Card Header">
+                            <span>My Task list Via Iterators </span>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+            <template iterator:task={taskList}>
+
+                <template lwc:if={task.first}>
+                    TOP PRIORITY FOR THE DAY
+                    <p key={task.value.taskId}> <b>{task.value.taskName} - {task.value.taskProgress} </b> </p>
+                </template>
+
+                <div key={task.value.taskId}>
+                    {task.value.taskName} - {task.value.taskProgress}
+                </div>
+
+                <template lwc:if={task.last}>
+                    LEAST PRIORITY FOR THE DAY
+                    <p key={task.value.taskId}> <i>{task.value.taskName} - {task.value.taskProgress} </i> </p>
+                </template>
+
+            </template>
+        </div>
+        <footer class="slds-card__footer">
+            All the best! You can do it...
+        </footer>
+    </article>
+
 </template>
