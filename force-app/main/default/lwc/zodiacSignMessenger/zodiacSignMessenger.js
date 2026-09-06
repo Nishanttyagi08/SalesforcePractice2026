@@ -93,7 +93,9 @@ export default class ZodiacSignMessenger extends LightningElement {
     userName = '';
     userBirthDate;
     userProfile = {};
-    resultReceived = false;
+  resultReceived = false;
+  displayName = '';
+  
     
 
 
@@ -105,16 +107,27 @@ export default class ZodiacSignMessenger extends LightningElement {
         this.userBirthDate = event.target.value;
     } 
 
-    get cardTitle() {
-        return `Hello ${this.userName}`;
-   }
+
     
-    handleSubmit(){
+    handleSubmit() {
+        const inputField = this.template.querySelector('lightning-input')
+      if (inputField.checkValidity()) {
+        this.displayName = this.userName;
         let userDob = new Date(this.userBirthDate);
         const userMonth = userDob.getMonth() + 1;
         const userDate = userDob.getDate();
-        this.userProfile =  this.checkZodiacSign(userMonth, userDate);
-    } 
+        this.userProfile = this.checkZodiacSign(userMonth, userDate);
+          
+        this.userName = '';
+        this.userBirthDate = '';
+            
+        } else {
+           inputField.reportValidity();
+        }
+  } 
+      get cardTitle() {
+        return `Hello ${this.displayName}`;
+   }
 
     checkZodiacSign(Month , Day) {
       
