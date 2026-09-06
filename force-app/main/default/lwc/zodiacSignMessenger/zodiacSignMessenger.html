@@ -1,9 +1,9 @@
 <template>
     <lightning-card title="Zodiac Sign Messenger">
         <div class="slds-m-around_medium">
-            <lightning-input type="text" value={userName} onchange={handleNameChange} label="Enter Your Name">
+            <lightning-input type="text" required value={userName} onchange={handleNameChange} label="Enter Your Name">
             </lightning-input>
-            <lightning-input type="date" value={userBirthDate} onchange={handleDateChange} name="input1"
+            <lightning-input type="date" required value={userBirthDate} onchange={handleDateChange} name="input1"
                 label="Enter Your Date of Birth"> </lightning-input>
 
             <lightning-button label="Hit it" onclick={handleSubmit} title="Hit it" variant="brand"
@@ -11,10 +11,10 @@
         </div>
     </lightning-card>
     <template lwc:if={resultReceived}>
-        <lightning-card variant="Narrow" title="Hello {userName}" class="slds-m-around_medium">
+        <lightning-card variant="Narrow" title={cardTitle} class="slds-m-around_medium">
             <div class="slds-m-around_medium">
 
-                <p><b> Your Sign</b>{userProfile.sign}</p>
+                <p><b> Your Sign: </b><i>{userProfile.sign}</i></p>
 
                 <p>{userProfile.emoji}</p>
 

@@ -90,10 +90,11 @@ export default class ZodiacSignMessenger extends LightningElement {
     }
   ];
 
-    userName;
+    userName = '';
     userBirthDate;
     userProfile = {};
     resultReceived = false;
+    
 
 
     handleNameChange(event){
@@ -104,7 +105,9 @@ export default class ZodiacSignMessenger extends LightningElement {
         this.userBirthDate = event.target.value;
     } 
 
-   
+    get cardTitle() {
+        return `Hello ${this.userName}`;
+   }
     
     handleSubmit(){
         let userDob = new Date(this.userBirthDate);
