@@ -1,23 +1,27 @@
 <template>
     <lightning-card title="Zodiac Sign Messenger">
         <div class="slds-m-around_medium">
-    <lightning-input type="text" value={userName} onchange={handleNameChange} label="Enter Your Name" > </lightning-input>
-    <lightning-input type="date" value={userBirthDate} onchange={handleDateChange} name="input1" label="Enter Your Date of Birth" > </lightning-input>
+            <lightning-input type="text" value={userName} onchange={handleNameChange} label="Enter Your Name">
+            </lightning-input>
+            <lightning-input type="date" value={userBirthDate} onchange={handleDateChange} name="input1"
+                label="Enter Your Date of Birth"> </lightning-input>
 
-    <lightning-button label="Hit it" onclick={handleSubmit} title="Hit it" variant="brand" class=" slds-align_absolute-center slds-m-around_small"> </lightning-button>
-    </div>
-   </lightning-card>
-   <lightning-card variant="Narrow" title="Your Sign" class="slds-m-around_medium">
- <div class="slds-m-around_medium">
-
-            <p>{userProfile.sign}</p>
-
-            <p>{userProfile.emoji}</p>
-
-            <p>{userProfile.trait}</p>
-
+            <lightning-button label="Hit it" onclick={handleSubmit} title="Hit it" variant="brand"
+                class=" slds-align_absolute-center slds-m-around_small"> </lightning-button>
         </div>
-   </lightning-card>
+    </lightning-card>
+    <template lwc:if={resultReceived}>
+        <lightning-card variant="Narrow" title="Hello {userName}" class="slds-m-around_medium">
+            <div class="slds-m-around_medium">
 
+                <p><b> Your Sign</b>{userProfile.sign}</p>
+
+                <p>{userProfile.emoji}</p>
+
+                <p><b>{userProfile.trait}</b></p>
+
+            </div>
+        </lightning-card>
+    </template>
 
 </template>

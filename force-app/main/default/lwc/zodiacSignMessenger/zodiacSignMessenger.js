@@ -93,6 +93,7 @@ export default class ZodiacSignMessenger extends LightningElement {
     userName;
     userBirthDate;
     userProfile = {};
+    resultReceived = false;
 
 
     handleNameChange(event){
@@ -102,7 +103,8 @@ export default class ZodiacSignMessenger extends LightningElement {
     handleDateChange(event){
         this.userBirthDate = event.target.value;
     } 
-    resultReceived = false;
+
+   
     
     handleSubmit(){
         let userDob = new Date(this.userBirthDate);
@@ -119,7 +121,7 @@ export default class ZodiacSignMessenger extends LightningElement {
 
             if ((Month === fromMonth && Day >= fromDay) || (Month === toMonth && Day <= toDay)) {
                 console.log('Sign of your DOB is : ' + JSON.stringify(sign));
-                 this.resultReceived = false;
+                 this.resultReceived = true;
                 return sign;
                 
             }
