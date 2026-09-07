@@ -8,5 +8,8 @@ export default class OwnerComponent extends LightningElement {
         { id: '3', name: 'Dextop', rating: '5/5' }
     ];
           
-
+    callChildMethod() {
+        this.template.querySelector('c-container-component').handleparentCalled();
+        
+   }
 }
