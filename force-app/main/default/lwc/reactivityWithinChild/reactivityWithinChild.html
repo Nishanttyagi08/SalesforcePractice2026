@@ -1,0 +1,12 @@
+<template>
+    <template for:each={personalDetails} for:item="detail"> 
+   <p key={detail.guid}>  {detail.name} 
+   {detail.guid} 
+{detail.balance}  </p>
+     <template for:each={detail.friends} for:item="friend">
+         <p key={friend.id}>
+    {friend.name}
+    </p>
+    </template>
+   </template>
+</template>

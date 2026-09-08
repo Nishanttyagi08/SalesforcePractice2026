@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Check Reactivity" > 
+        <div class="slds-m-around_medium" >
+        <p>{address}</p><br>
+       <lightning-button type="button" label="Click Me" onclick={updateAddress}></lightning-button>
+       </div>
+       <c-reactivity-within-child personal-details = {myPersonalDetails}> </c-reactivity-within-child>
+    </lightning-card>
+    
+</template>
