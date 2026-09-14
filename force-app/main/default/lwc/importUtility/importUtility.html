@@ -1,0 +1,18 @@
+<template>
+<img src={src}>
+</img>
+
+<lightning-card > 
+   <div class="slds-m-around_medium">
+     <template lwc:if={showInProd}> 
+      <p>Welcome to the Production Enviroment</p>
+     </template>
+     <template lwc:else> 
+      <p>Welcome to the Sandbox Enviroment</p>
+     </template>
+    </div>
+
+
+</lightning-card>
+    
+</template>
